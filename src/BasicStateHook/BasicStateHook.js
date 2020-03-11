@@ -1,37 +1,31 @@
 import React, { useState } from 'react';
 
 export default () => {
-  const [count, setCount] = useState(0);
-  const [newTodo, setNewTodo] = useState('');
+  const [newTodo, setNewTodo] = useState({ text: '' });
   const [todos, setTodos] = useState([{ text: 'Apprendre les Hooks' }]);
 
-  function onChangeNewTodo(e) {
-    const target = {e};
-    setNewTodo(target.value);
+  function onChangeNewTodo({ target }) {
+    setNewTodo({ text: target.value });
+    // console.log(newTodo);
   }
 
   function onClickAddTodo(e) {
-    setTodos(todos.push({text: newTodo}));
-    debugger
-    setNewTodo('');
+    setTodos(todos.concat(newTodo));
+    setNewTodo({ text: '' });
+    // console.log(todos);
   }
 
   return (
     <div>
-      <input type="text" name="newTodo" value={newTodo} onChange={onChangeNewTodo}></input>
+      <p>{todos.length} items</p>
+      <input type="text" value={newTodo.text} onChange={onChangeNewTodo}></input>{newTodo.text.length}
       <button onClick={onClickAddTodo}>Ajouter cette todo</button>
-      Todos
       <ul>
-        { todos.map((todo, index) => {
-          return(<li key={index}>{todo.text}</li>)
+        {todos.map((todo, index) => {
+          return (<li key={index}>{todo.text}</li>)
         })}
       </ul>
 
-
-      <p>Vous avez cliqué {count} fois</p>
-      <button onClick={() => setCount(count + 1)}>
-        Cliquez ici
-      </button>
     </div>
   );
 }
