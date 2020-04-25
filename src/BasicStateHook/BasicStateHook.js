@@ -21,9 +21,7 @@ export default () => {
         <button onClick={onClickAddTodo}>Ajouter cette todo</button>
       </div>
       <ul>
-        {
-          todos.map((todo, index) => <li key={index}>{todo.text}</li>)
-        }
+        { todos.map((todo, index) => <li key={index}>{todo.text}</li>) }
       </ul>
 
     </div>
