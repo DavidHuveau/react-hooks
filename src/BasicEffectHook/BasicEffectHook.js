@@ -9,12 +9,16 @@ export default function Welcome() {
 
   useEffect(() => {
     document.title = `Welcome ${name}`;
+    console.log(`from effect function: ${name}`);
+    return () => { console.log(`from return function: ${name}`) };
   }, [name]);
 
   return (
     <Fragment>
-      <input type="text" value={name} onChange={handleChangeName} />
-      <input type="text" value={age} onChange={handleChangeAge} />
+      <fieldset>
+        <legend>Choose your name</legend>
+        <input type="text" value={name} onChange={handleChangeName} />
+      </fieldset>
     </Fragment>
   );
 }

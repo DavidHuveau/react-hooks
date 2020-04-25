@@ -23,7 +23,6 @@ export default () => {
       <ul>
         { todos.map((todo, index) => <li key={index}>{todo.text}</li>) }
       </ul>
-
     </div>
   );
 }
