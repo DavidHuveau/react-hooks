@@ -6,24 +6,24 @@ export default () => {
 
   function onChangeNewTodo({ target }) {
     setNewTodo({ text: target.value });
-    // console.log(newTodo);
   }
 
   function onClickAddTodo(e) {
     setTodos(todos.concat(newTodo));
     setNewTodo({ text: '' });
-    // console.log(todos);
   }
 
   return (
     <div>
-      <p>{todos.length} items</p>
-      <input type="text" value={newTodo.text} onChange={onChangeNewTodo}></input>{newTodo.text.length}
-      <button onClick={onClickAddTodo}>Ajouter cette todo</button>
+      <p>{todos.length} todos</p>
+      <input type="text" value={newTodo.text} onChange={onChangeNewTodo}></input> {newTodo.text.length} car.
+      <div>
+        <button onClick={onClickAddTodo}>Ajouter cette todo</button>
+      </div>
       <ul>
-        {todos.map((todo, index) => {
-          return (<li key={index}>{todo.text}</li>)
-        })}
+        {
+          todos.map((todo, index) => <li key={index}>{todo.text}</li>)
+        }
       </ul>
 
     </div>
