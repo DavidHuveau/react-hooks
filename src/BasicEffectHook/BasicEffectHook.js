@@ -9,9 +9,12 @@ export default function Welcome() {
 
   useEffect(() => {
     document.title = `Welcome ${name}`;
-    console.log(`from effect function: ${name}`);
-    return () => { console.log(`from return function: ${name}`) };
   }, [name]);
+
+  useEffect(() => {
+    console.log(`Like componentDidMount & componentDidUpdate`);
+    return () => { console.log(`Like componentWillUnmount & componentWillUpdate`) };
+  });
 
   return (
     <Fragment>
