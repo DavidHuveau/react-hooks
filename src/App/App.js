@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { hookTypes } from '../constants'
 import BasicStateHook from '../BasicStateHook/BasicStateHook';
 import BasicEffectHook from '../BasicEffectHook/BasicEffectHook';
+import CustomHook from '../CustomHook/CustomHook';
 import './App.css';
 
 const hookTypeDesk = {
   [hookTypes.STATE]: () => <BasicStateHook />,
   [hookTypes.EFFECT]: () => <BasicEffectHook />,
+  [hookTypes.CUSTOM]: () => <CustomHook />
 }
 
 function App() {
@@ -20,8 +22,9 @@ function App() {
     <div className="App">
       <header>
         <ul id="navigation">
-          <li><a href="#" onClick={() => onChangeHookType(hookTypes.STATE)}>Basic State Hook</a></li>
-          <li><a href="#" onClick={() => onChangeHookType(hookTypes.EFFECT)}>Basic Effect Hook</a></li>
+          <li><a href="#" onClick={() => onChangeHookType(hookTypes.STATE)}>State Hook</a></li>
+          <li><a href="#" onClick={() => onChangeHookType(hookTypes.EFFECT)}>Effect Hook</a></li>
+          <li><a href="#" onClick={() => onChangeHookType(hookTypes.CUSTOM)}>Custom Hook</a></li>
         </ul>
       </header>
       <main>
