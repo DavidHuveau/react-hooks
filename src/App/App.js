@@ -3,12 +3,15 @@ import { hookTypes } from '../constants'
 import BasicStateHook from '../BasicStateHook/BasicStateHook';
 import BasicEffectHook from '../BasicEffectHook/BasicEffectHook';
 import CustomHook from '../CustomHook/CustomHook';
+import BasicContextHook from '../BasicContextHook/BasicContextHook';
+
 import './App.css';
 
 const hookTypeDesk = {
   [hookTypes.STATE]: () => <BasicStateHook />,
   [hookTypes.EFFECT]: () => <BasicEffectHook />,
-  [hookTypes.CUSTOM]: () => <CustomHook />
+  [hookTypes.CUSTOM]: () => <CustomHook />,
+  [hookTypes.CONTEXT]: () => <BasicContextHook />
 }
 
 function App() {
@@ -25,6 +28,7 @@ function App() {
           <li><a href="#" onClick={() => onChangeHookType(hookTypes.STATE)}>State Hook</a></li>
           <li><a href="#" onClick={() => onChangeHookType(hookTypes.EFFECT)}>Effect Hook</a></li>
           <li><a href="#" onClick={() => onChangeHookType(hookTypes.CUSTOM)}>Custom Hook</a></li>
+          <li><a href="#" onClick={() => onChangeHookType(hookTypes.CONTEXT)}>Context Hook</a></li>
         </ul>
       </header>
       <main>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default () => {
-  const [newTodo, setNewTodo] = useState({ text: '' });
-  const [todos, setTodos] = useState([{ text: 'Apprendre les Hooks' }]);
+  const [newTodo, setNewTodo] = useState({ text: "" });
+  const [todos, setTodos] = useState([{ text: "Apprendre les Hooks" }]);
 
   function onChangeNewTodo({ target }) {
     setNewTodo({ text: target.value });
@@ -10,7 +10,7 @@ export default () => {
 
   function onClickAddTodo(e) {
     setTodos(todos.concat(newTodo));
-    setNewTodo({ text: '' });
+    setNewTodo({ text: "" });
   }
 
   return (
@@ -21,7 +21,7 @@ export default () => {
         <button onClick={onClickAddTodo}>Ajouter cette todo</button>
       </div>
       <ul>
-        { todos.map((todo, index) => <li key={index}>{todo.text}</li>) }
+        {todos.map((todo, index) => <li key={index}>{todo.text}</li>)}
       </ul>
     </div>
   );
