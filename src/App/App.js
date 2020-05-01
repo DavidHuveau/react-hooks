@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { hookTypes } from '../constants'
-import BasicStateHook from '../BasicStateHook/BasicStateHook';
-import BasicEffectHook from '../BasicEffectHook/BasicEffectHook';
-import CustomHook from '../CustomHook/CustomHook';
-import BasicContextHook from '../BasicContextHook/BasicContextHook';
+import React, { useState } from "react";
+import { hookTypes } from "../constants";
+import BasicStateHook from "../BasicStateHook/BasicStateHook";
+import BasicEffectHook from "../BasicEffectHook/BasicEffectHook";
+import CustomHook from "../CustomHook/CustomHook";
+import BasicContextHook from "../BasicContextHook/basic-context-hook";
 
-import './App.css';
+import "./App.css";
 
 const hookTypeDesk = {
   [hookTypes.STATE]: () => <BasicStateHook />,
