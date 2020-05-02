@@ -13,7 +13,7 @@ const hookTypeDesk = {
   [hookTypes.EFFECT]: { menuItemText: "Effect Hook", component: () => <BasicEffectHook /> },
   [hookTypes.CUSTOM]: { menuItemText: "Custom Hook", component: () => <CustomHook /> },
   [hookTypes.CONTEXT]: { menuItemText: "Context Hook", component: () => <ContextHook /> },
-  [hookTypes.REDUCER]: { menuItemText: "Reducer Hook", component: () => <BasicReducerHook /> },
+  [hookTypes.REDUCER]: { menuItemText: "Reducer Hook", component: () => <BasicReducerHook initialCount={10} /> },
 }
 
 export function App() {
@@ -31,15 +31,15 @@ export function App() {
             return (
               <li>
                 <a href="#" onClick={() => onChangeHookType(key)}>
-                  {hookTypeDesk[key]["menuItemText"]}
+                  { hookTypeDesk[key]["menuItemText"] }
                 </a>
               </li>
             );
-          })}
+          }) }
         </ul>
       </header>
       <main style={{ paddingTop: "20px" }}>
-        {hookTypeDesk[hookType]["component"]()}
+        { hookTypeDesk[hookType]["component"]() }
       </main>
       <footer></footer>
     </div>

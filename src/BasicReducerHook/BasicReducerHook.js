@@ -1,6 +1,8 @@
 import React, { useReducer } from "react";
 
-const initialState = {count: 0};
+function init(initialCount) {
+  return { count: initialCount };
+}
 
 function reducer(state, action) {
   switch (action.type) {
@@ -8,16 +10,21 @@ function reducer(state, action) {
       return {count: state.count + 1};
     case 'decrement':
       return {count: state.count - 1};
+    case 'reset':
+      return init(action.payload);
     default:
       throw new Error();
   }
 }
 
-export function BasicReducerHook() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+export function BasicReducerHook({initialCount}) {
+  const [state, dispatch] = useReducer(reducer, initialCount, init);
   return (
     <>
       <div>Total : {state.count}</div>
+      <button onClick={() => dispatch({type: 'reset', payload: initialCount})}>
+        Reset
+      </button>
       <button onClick={() => dispatch({type: 'decrement'})}>-</button>
       <button onClick={() => dispatch({type: 'increment'})}>+</button>
     </>
