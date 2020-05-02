@@ -1,8 +1,8 @@
 import React from "react";
-import ThemeSwitch from "./theme-switch";
-import ThemedButton from './themed-button';
+import { ThemeSwitch } from "./ThemeSwitch";
+import { ThemedButton } from './ThemedButton';
 
-export default function Toolbar() {
+export function Toolbar() {
   return (
     <>
       { ["File", "Edition", "Tools", "About"].map((menuItem, index) => <ThemedButton key={index} text={menuItem} />) }

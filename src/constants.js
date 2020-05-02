@@ -1,9 +1,12 @@
-export const hookTypes = {
-  STATE: "STATE",
-  EFFECT: "EFFECT",
-  CUSTOM: "CUSTOM",
-  CONTEXT: "CONTEXT"
-};
+import keyMirror from "keymirror";
+
+export const hookTypes = keyMirror({
+  STATE: null,
+  EFFECT: null,
+  CUSTOM: null,
+  CONTEXT: null,
+  REDUCER: null
+});
 
 export const friendList = [
   { id: 1, name: 'Phoebe' },

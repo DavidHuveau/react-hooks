@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default () => {
+export function BasicStateHook() {
   const [newTodo, setNewTodo] = useState({ text: "" });
   const [todos, setTodos] = useState([{ text: "Apprendre les Hooks" }]);
 

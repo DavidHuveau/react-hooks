@@ -1,8 +1,8 @@
 import React, { useState} from "react";
-import { themes, ThemeContext } from "./theme-context";
-import Toolbar from "./toolbar";
+import { themes, ThemeContext } from "./ThemeContext";
+import { Toolbar } from "./Toolbar";
 
-export default function BasicContextHook() {
+export function ContextHook() {
   const [theme, setTheme] = useState(themes.light);
 
   function toggleTheme() {

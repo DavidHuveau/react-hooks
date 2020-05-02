@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { hookTypes } from "../constants";
-import BasicStateHook from "../BasicStateHook/BasicStateHook";
-import BasicEffectHook from "../BasicEffectHook/BasicEffectHook";
-import CustomHook from "../CustomHook/CustomHook";
-import BasicContextHook from "../BasicContextHook/basic-context-hook";
+import { BasicStateHook } from "../BasicStateHook";
+import { BasicEffectHook } from "../BasicEffectHook";
+import { CustomHook } from "../CustomHook";
+import { ContextHook } from "../ContextHook";
 
 import "./App.css";
 
@@ -11,10 +11,11 @@ const hookTypeDesk = {
   [hookTypes.STATE]: () => <BasicStateHook />,
   [hookTypes.EFFECT]: () => <BasicEffectHook />,
   [hookTypes.CUSTOM]: () => <CustomHook />,
-  [hookTypes.CONTEXT]: () => <BasicContextHook />
+  [hookTypes.CONTEXT]: () => <ContextHook />,
+  // [hookTypes.REDUCER]: () => <BasicReducerHook />
 }
 
-function App() {
+export function App() {
   const [hookType, setHookType] = useState(hookTypes.STATE);
 
   function onChangeHookType(FeatureType) {
@@ -38,5 +39,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

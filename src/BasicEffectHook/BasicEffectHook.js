@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function BasicEffectHook() {
+export function BasicEffectHook() {
   const [name, setName] = useState("John");
 
   function handleChangeName(e) {
