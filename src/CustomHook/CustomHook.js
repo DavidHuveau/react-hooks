@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { friendList } from '../constants';
+
+export const FRIEND_LIST = [
+  { id: 1, name: 'Phoebe' },
+  { id: 2, name: 'Rachel' },
+  { id: 3, name: 'Ross' },
+];
 
 function useFriendStatus(friendID) {
   const [isOnline, setIsOnline] = useState(null);
@@ -22,7 +27,7 @@ export function CustomHook() {
         onChange={e => setRecipientID(Number(e.target.value))}
       >
         {
-          friendList.map(friend => (
+          FRIEND_LIST.map(friend => (
             <option key={friend.id} value={friend.id}>
               {friend.name}
             </option>

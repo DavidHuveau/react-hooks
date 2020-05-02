@@ -5,15 +5,17 @@ import { BasicEffectHook } from "../BasicEffectHook";
 import { CustomHook } from "../CustomHook";
 import { ContextHook } from "../ContextHook";
 import { BasicReducerHook } from "../BasicReducerHook";
+import { BasicRefHook } from "../BasicRefHook";
 
 import "./App.css";
 
-const hookTypeDesk = {
+const hookTypesDesk = {
   [hookTypes.STATE]: { menuItemText: "State Hook", component: () => <BasicStateHook /> },
   [hookTypes.EFFECT]: { menuItemText: "Effect Hook", component: () => <BasicEffectHook /> },
   [hookTypes.CUSTOM]: { menuItemText: "Custom Hook", component: () => <CustomHook /> },
   [hookTypes.CONTEXT]: { menuItemText: "Context Hook", component: () => <ContextHook /> },
   [hookTypes.REDUCER]: { menuItemText: "Reducer Hook", component: () => <BasicReducerHook initialCount={10} /> },
+  [hookTypes.REF]: { menuItemText: "Ref Hook", component: () => <BasicRefHook /> },
 }
 
 export function App() {
@@ -27,11 +29,11 @@ export function App() {
     <div className="App">
       <header>
         <ul id="navigation">
-          { Object.keys(hookTypeDesk).map(key => {
+          { Object.keys(hookTypesDesk).map((key, index) => {
             return (
-              <li>
+              <li key={index}>
                 <a href="#" onClick={() => onChangeHookType(key)}>
-                  { hookTypeDesk[key]["menuItemText"] }
+                  { hookTypesDesk[key]["menuItemText"] }
                 </a>
               </li>
             );
@@ -39,7 +41,7 @@ export function App() {
         </ul>
       </header>
       <main style={{ paddingTop: "20px" }}>
-        { hookTypeDesk[hookType]["component"]() }
+        { hookTypesDesk[hookType]["component"]() }
       </main>
       <footer></footer>
     </div>
