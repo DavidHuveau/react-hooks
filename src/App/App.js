@@ -4,15 +4,16 @@ import { BasicStateHook } from "../BasicStateHook";
 import { BasicEffectHook } from "../BasicEffectHook";
 import { CustomHook } from "../CustomHook";
 import { ContextHook } from "../ContextHook";
+import { BasicReducerHook } from "../BasicReducerHook";
 
 import "./App.css";
 
 const hookTypeDesk = {
-  [hookTypes.STATE]: () => <BasicStateHook />,
-  [hookTypes.EFFECT]: () => <BasicEffectHook />,
-  [hookTypes.CUSTOM]: () => <CustomHook />,
-  [hookTypes.CONTEXT]: () => <ContextHook />,
-  // [hookTypes.REDUCER]: () => <BasicReducerHook />
+  [hookTypes.STATE]: { menuItemText: "State Hook", component: () => <BasicStateHook /> },
+  [hookTypes.EFFECT]: { menuItemText: "Effect Hook", component: () => <BasicEffectHook /> },
+  [hookTypes.CUSTOM]: { menuItemText: "Custom Hook", component: () => <CustomHook /> },
+  [hookTypes.CONTEXT]: { menuItemText: "Context Hook", component: () => <ContextHook /> },
+  [hookTypes.REDUCER]: { menuItemText: "Reducer Hook", component: () => <BasicReducerHook /> },
 }
 
 export function App() {
@@ -26,14 +27,19 @@ export function App() {
     <div className="App">
       <header>
         <ul id="navigation">
-          <li><a href="#" onClick={() => onChangeHookType(hookTypes.STATE)}>State Hook</a></li>
-          <li><a href="#" onClick={() => onChangeHookType(hookTypes.EFFECT)}>Effect Hook</a></li>
-          <li><a href="#" onClick={() => onChangeHookType(hookTypes.CUSTOM)}>Custom Hook</a></li>
-          <li><a href="#" onClick={() => onChangeHookType(hookTypes.CONTEXT)}>Context Hook</a></li>
+          { Object.keys(hookTypeDesk).map(key => {
+            return (
+              <li>
+                <a href="#" onClick={() => onChangeHookType(key)}>
+                  {hookTypeDesk[key]["menuItemText"]}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </header>
-      <main>
-        { hookTypeDesk[hookType]() }
+      <main style={{ paddingTop: "20px" }}>
+        {hookTypeDesk[hookType]["component"]()}
       </main>
       <footer></footer>
     </div>

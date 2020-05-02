@@ -14,7 +14,7 @@ export function BasicStateHook() {
   }
 
   return (
-    <div>
+    <>
       <p>{todos.length} todos</p>
       <input type="text" value={newTodo.text} onChange={onChangeNewTodo}></input> {newTodo.text.length} car.
       <div>
@@ -23,6 +23,6 @@ export function BasicStateHook() {
       <ul>
         {todos.map((todo, index) => <li key={index}>{todo.text}</li>)}
       </ul>
-    </div>
+    </>
   );
 }
