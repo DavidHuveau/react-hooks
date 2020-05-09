@@ -1,1 +1,2 @@
-export * from "./CustomHook";
+export * from "./CustomHook1";
+export * from "./CustomHook2";
