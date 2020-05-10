@@ -16,7 +16,7 @@ function useFriendStatus(friendID) {
   return isOnline;
 }
 
-export function CustomHook1() {
+export function CustomHook() {
   const [recipientID, setRecipientID] = useState(1);
   const isRecipientOnline = useFriendStatus(recipientID);
 
